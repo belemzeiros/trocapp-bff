@@ -1,0 +1,124 @@
+{
+	"variables": [],
+	"info": {
+		"name": "trocapp-bff",
+		"_postman_id": "4ef1b8b9-0ef1-6dd2-5990-a02166d06d23",
+		"description": "API REST com NodeJS e Express",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar Produtos",
+			"request": {
+				"url": "http://localhost:3001/produtos",
+				"method": "GET",
+				"header": [
+					{
+						"key": "testeHeaders",
+						"value": "valor do teste",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "testBody",
+							"value": "valor do teste",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Listar produtos cadastrados"
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Produto",
+			"request": {
+				"url": "http://localhost:3001/produtos",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "produto",
+							"value": "{\"title\":\"Titulo do produto\"}",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Criar um novo produto"
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Produto",
+			"request": {
+				"url": "http://localhost:3001/produtos",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "produto",
+							"value": "{\"title\":\"Titulo do produto\"}",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Apagar Produto",
+			"request": {
+				"url": "http://localhost:3001/produtos",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "produtoId",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
