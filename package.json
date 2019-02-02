@@ -4,11 +4,13 @@
   "description": "Trocapp Backend for Frontend",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "jest"
   },
   "author": "Belemzeiros",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4"
   }
 }
