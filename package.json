@@ -2,9 +2,9 @@
   "name": "trocapp-bff",
   "version": "1.0.0",
   "description": "Trocapp Backend for Frontend",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node src/index.js",
     "test": "jest"
   },
   "author": "Belemzeiros",
