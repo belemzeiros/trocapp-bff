@@ -8,8 +8,8 @@ router.use(function(req, res, next) {
   next();
 });
 
-router.get('/produtos', (req, res) => {
-  res.json(produtoService.listarProdutos());
+router.get('/produtos', async (req, res) => {
+  res.json(await produtoService.listarProdutos());
 });
 
 router.post('/produtos', (req, res) => {
