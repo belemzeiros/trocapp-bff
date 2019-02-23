@@ -2,12 +2,12 @@ const produtoRepository = require('../../repository/produto');
 
 const listarProdutos = async () => await produtoRepository.listarProdutos();
 
-const criarProduto = produto => {
+const criarProduto = async produto => {
   const objetoProduto = JSON.parse(produto);
   const isTitle = Object.keys(objetoProduto).includes('title');
 
   if (isTitle) {
-    return produtoRepository.criarProduto(objetoProduto);
+    return await produtoRepository.criarProduto(objetoProduto);
   }
 
   return {
@@ -16,12 +16,29 @@ const criarProduto = produto => {
 
 };
 
-const atualizarProduto = produto => {
+const atualizarProduto = async produto => {
   const objetoProduto = JSON.parse(produto);
-  return produtoRepository.atualizarProduto(objetoProduto);
+  const isProdutoId = Object.keys(objetoProduto).includes('produtoId');
+
+  if (isProdutoId && objetoProduto.produtoId > 0) {
+    return await produtoRepository.atualizarProduto(objetoProduto);
+  }
+
+  return {
+    mensagem: 'Atributo "produtoId" é obrigatório!'
+  }
+
 };
 
-const apagarProduto = produtoId => produtoRepository.apagarProduto(produtoId);
+const apagarProduto = async produtoId => {
+  if (produtoId > 0) {
+    return await produtoRepository.apagarProduto(produtoId);
+  }
+
+  return {
+    mensagem: 'Atributo "produtoId" é obrigatório!'
+  }
+};
 
 module.exports = {
   listarProdutos,
