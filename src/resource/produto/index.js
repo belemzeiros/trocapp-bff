@@ -12,16 +12,16 @@ router.get('/produtos', async (req, res) => {
   res.json(await produtoService.listarProdutos());
 });
 
-router.post('/produtos', (req, res) => {
-  res.send(produtoService.criarProduto(req.body.produto))
+router.post('/produtos', async (req, res) => {
+  res.json(await produtoService.criarProduto(req.body.produto))
 });
 
-router.put('/produtos', (req, res) => {
-  res.send(produtoService.atualizarProduto(req.body.produto));
+router.put('/produtos', async (req, res) => {
+  res.json(await produtoService.atualizarProduto(req.body.produto));
 });
 
-router.delete('/produtos', (req, res) => {
-  res.send(produtoService.apagarProduto(req.body.produtoId));
+router.delete('/produtos', async (req, res) => {
+  res.json(await produtoService.apagarProduto(req.body.produtoId));
 });
 
 module.exports = router;
