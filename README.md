@@ -52,6 +52,12 @@ Em seguida, para iniciar o MySQL Server execute o comando abaixo. Será definida
 docker run -p 3306:3306 --name mysql8 -e MYSQL_ROOT_PASSWORD=Belemzeiros2018 -e MYSQL_ROOT_HOST=% -e MYSQL_USER=trocapp -e MYSQL_PASSWORD=trocapp -e MYSQL_DATABASE=trocapp -d mysql:latest
 ```
 
+Na próxima vez que precisar iniciar o MySQL, não é necessário executar o comando `docker run` novamente, basta iniciar o container com o comando baixo, que inicializa o container com o nome `mysql8` que definimos anteriormente:
+
+```
+docker start mysql8
+```
+
 Para configurar uma conexão com o MySQL utilize os dados abaixo:
 ```
 Host: localhost
@@ -66,6 +72,26 @@ allowPublicKeyRetrieval=true
 useSSL=false
 ```
 Mais informações na [documentação](https://mysql-net.github.io/MySqlConnector/connection-options/).
+
+Para garantir segurança da informação, é uma boa prática não inserir credenciais do banco no código fonte. Como alternativa, podemos obter essas informações de variáveis de ambiente, conforme exemplo abaixo em Node.js:
+
+```
+const MYSQL_HOST = process.env.MYSQL_HOST;
+const MYSQL_USER = process.env.MYSQL_USER;
+const MYSQL_PASSWORD = process.env.MYSQL_PASSWORD;
+const MYSQL_DATABASE = process.env.MYSQL_DATABASE;
+
+```
+
+O exemplo acima, necessita que as seguintes variáveis de ambiente sejam criadas no seus sistema operacional:
+
+```
+MYSQL_HOST=localhost
+MYSQL_USER=trocapp
+MYSQL_PASSWORD=trocapp
+MYSQL_DATABASE=trocapp
+
+```
 
 ## Leitura adicional
 
