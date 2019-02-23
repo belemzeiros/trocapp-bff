@@ -12,11 +12,11 @@ const open = () => mysql.createConnection({
   database : MYSQL_DATABASE
 });
 
-const execute = async query => {
+const execute = async (query, param) => {
   return new Promise((resolve, reject) => {
     const connection = open();
     connection.connect();
-    connection.query(query, (error, results, fields) => {
+    connection.query(query, param, (error, results, fields) => {
       if (error) {
         connection.end();
         console.error(error);
